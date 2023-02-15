@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Javascript freetuts</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        
+        <script>
+            
+            function bt()
+            {
+                a = prompt("nhập a: ")
+                b = prompt("nhập b: ")
+                while (a==0) {
+                    prompt("nhập a khác 0: ")
+                }
+                /*chỗ này xét a khác 0 là đc, vì a điều kiện để giải pt là a khác 0*/
+                function equation() {
+                    if (a == 0 && b == 0) {
+                    alert('Phương trình vô số nghiệm');
+                } else if (a != 0 && b == 0) {
+                    alert('Phương trình có nghiệm x = 0');
+                } else if (a == 0 && b != 0) {
+                    alert("Phương trình vô nghiệm");
+                } else {
+                    alert('Phương trình có nghiệm x = ' + (-b / a));
+                    console.log('Phương trình có nghiệm x = ' + (-b / a))
+                }
+                }
+                /*nghiệm của 5x+8 = 0 là -1.6*/
+                equation()
+
+                function tg() {
+                x = prompt("nhập cạnh x ")
+                y = prompt("nhập cạnh y ")
+                /* 
+                cạnh huyền là z
+                vì tam giác này vuông nên: ..... */
+                z = Math.sqrt(x*x+y*y)
+                alert("cạnh huyền: " + z )
+                console.log("cạnh huyền: ", z )
+                /*
+                cho tam giác ABC vuông tại A. cạnh AB = x, AC = y, BC = z. AH là đường cao, cho AH = j, BH = k, CH = l
+                tam giác ABH là tam giác vuông. tìm BH hoặc CH trc r tìm AH(đường cao) sau. chỗ này em tìm BH
+                theo hệ thức lượng trong tam giác vuông: AB^2=BH.BC => BH=AB^2/BC ( cái ^ là mũ)
+                */
+                j = x*x/z
+                /*
+                vì tam giác ABH cũng là tam giác vuông nên áp dụng đl py-ta-go
+                cạnh huyền bình phương bằng tổng bình phương 2 cạnh còn lại
+                AB^2=BH^2+AH^2 => AH = căn AB^2-BH^2
+                */
+                k = Math.sqrt(x*x-j*j)
+                console.log("đường cao: ", k)
+                alert("đường cao: " + k)
+                /*
+                vì tam giác ABC vuông tại A nên góc A là 90 độ
+                gọi góc ACB là f, góc ABC là g
+                dùng công thức lượng giác (ở đây em dùng sin)
+                */
+                f = Math.sin(x/z) * 180 / 3.14
+                console.log("góc ACB: ", f)
+                alert("góc ACB: " + f)
+                g = Math.sin(y/z) * 180 / 3.14
+                console.log("góc ABC: ", g)
+                alert("góc ABC: " + g)
+                /*sau 1 khoảng thời gian tìm hiểu thì thoi em thua, em tính góc mà nó ra tùm lum số:< */
+                }
+                tg()
+
+            }
+            bt()
+            
+        </script>
+    </body>
+</html>
